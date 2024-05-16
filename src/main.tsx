@@ -1,24 +1,42 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-// import App from './App.tsx'
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import './index.css';
-import Root from './routes/root';
+import App from './App';
+import About from './components/About';
+import ICheckout from './components/ICheckout';
 import ErrorPage from './error-page';
-import Contact from "./routes/contact";
+import './index.css';
+import Success from './components/Success';
+import Failure from './components/Failure';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element: <App />,
     errorElement: <ErrorPage />,
   },
   {
-    path: "contacts/:contactId",
-    element: <Contact />,
+    path: "/about",
+    element: <About />,
+  },
+  {
+    path: "/ichkout",
+    element: <ICheckout />,
+  },
+  {
+    path: '/success',
+    element: (
+        <Success/>
+    )
+  },
+  {
+      path: '/failure',
+      element: (
+          <Failure/>
+      )
   },
 ]);
 ReactDOM.createRoot(document.getElementById('root')!).render(
